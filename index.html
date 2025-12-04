@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Tú y Yo: Un Amor para Siempre 🌟</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 1. Reset y Fondo General */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex; /* Para centrar el contenido */
+            justify-content: center;
+            align-items: center;
+            font-family: 'Playfair Display', serif; /* Fuente principal para el cuerpo */
+            color: #333;
+            background: #f7f3f9; /* Fondo muy claro */
+            overflow-x: hidden; /* Evita barras horizontales */
+        }
+
+        /* 2. El Contenedor de la Página (La "Tarjeta Flotante") */
+        .card-container {
+            width: 90%;
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+            border: 3px solid #ffc0cb; /* Borde rosa claro */
+            backdrop-filter: blur(5px); /* Efecto de desenfoque si hay algo detrás */
+            text-align: center;
+            z-index: 10; /* Asegura que esté por encima de la animación */
+            position: relative;
+            transform: scale(0.95); /* Levemente más pequeño al inicio */
+            transition: transform 0.5s ease-out;
+        }
+
+        .card-container:hover {
+            transform: scale(1); /* Se agranda un poco al pasar el mouse */
+        }
+
+        /* 3. Títulos y Tipografía Romántica */
+        h1 {
+            font-family: 'Great Vibes', cursive; /* Fuente Cursiva Muy Elegante */
+            color: #d81b60; /* Cereza Profundo */
+            font-size: 5em; 
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 5px rgba(255, 192, 203, 0.7); /* Sombra suave y rosada */
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #880e4f; /* Vino Oscuro */
+            font-size: 1.6em;
+            margin-top: 0;
+            border-bottom: 2px solid #ffc0cb;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* 4. Estilo de los Párrafos y Secciones */
+        .message-p {
+            font-size: 1.1em;
+            color: #555;
+            margin: 15px 0;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #fce4ec; /* Fondo rosa muy pálido */
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Sombra interna sutil */
+        }
+
+        /* 5. Estilo para la Foto (Placeholder) */
+        .photo-area {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .photo-area img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 50%; /* Foto circular */
+            border: 8px solid #ffc0cb; /* Borde grueso y rosa */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            animation: fadeIn 2s ease-out; /* Efecto de aparición suave */
+        }
+
+        /* 6. Animación del Corazón (Más Elaborada) */
+        .heart-icon {
+            color: #e91e63;
+            font-size: 1.4em;
+            margin: 0 8px;
+            display: inline-block;
+            animation: beat 1s infinite alternate; /* Latido */
+        }
+
+        @keyframes beat {
+            0% { transform: scale(1); color: #e91e63; }
+            100% { transform: scale(1.1); color: #c2185b; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* 7. Pie de Página y Firma */
+        .footer {
+            margin-top: 40px;
+            border-top: 1px dashed #ffb6c1; 
+            padding-top: 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            color: #d81b60;
+            margin-top: 10px;
+        }
+
+        /* --- BONUS: Animación de Fondo con Partículas --- */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 192, 203, 0.5); /* Rosa claro semi-transparente */
+            animation: animate 25s linear infinite;
+            bottom: -100px;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+
+        .cc{
+            background-color: #c2185b;
+            color: #ffb6c1;
+            margin-right: auto;
+            margin-left: auto;
+            width: 100px;
+        }
+        .cc:hover{
+            scale: 1.2;
+            background-color: #880e4f;
+            color: #ffb6c1 ;
+        }
+        .cn{
+            text-decoration: none;
+            color: #f7f3f9;
+        }
+        .cn:hover{
+            text-decoration: underline;
+            color: #f7f3f9;
+        }
+
+        .particle:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; animation-duration: 10s; }
+        .particle:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .particle:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; animation-duration: 9s; }
+        .particle:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 15s; }
+        .particle:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; animation-duration: 13s; }
+        .particle:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; animation-duration: 11s; }
+        .particle:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 7s; animation-duration: 18s; }
+        .particle:nth-child(8) { left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s; }
+        .particle:nth-child(9) { left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s; }
+        .particle:nth-child(10) { left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s; }
+
+        @keyframes animate {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.5; border-radius: 50%; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 20%; }
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <ul class="bg-animation">
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+    </ul>
+    
+    <div class="card-container">
+        
+        <h1><span class="heart-icon">💕</span> Mi Vida Entera <span class="heart-icon">💕</span></h1>
+        <h2>Por siempre a tu lado, mi hermosa.</h2>
+
+        <div class="photo-area">
+            <img src="A.jpg" alt="Una foto de nosotros dos">
+            <p style="font-style: italic; color: #d81b60;">Nuestro amor, capturado en un instante.</p>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #880e4f;">Una Carta del Corazón</h3>
+            <p class="message-p">
+                Mi amor, esta pequeña página no alcanza a expresar la inmensidad de lo que siento por vos. Sos mi sol en días nublados, mi mejor amiga y el amor de mi vida.
+            </p>
+            <p class="message-p">
+                Gracias por cada risa, por cada plan y por hacer que mi futuro se vea tan brillante solo por incluirte a vos. Te elijo hoy y te elegiré todos los días que vengan.
+            </p>
+            <p class="message-p" style="font-weight: bold; color: #d81b60;">
+                Sos mi sueño hecho realidad <span class="heart-icon">💖</span>
+            </p>
+        </div>
+
+        <div class="section">
+            <h3 style="color: #880e4f;">Lo que Adoro de Vos</h3>
+            <ul style="text-align: center; list-style: none; padding: 0;">
+                <li class="message-p" style="color: #d81b60;">🌟 Tu sonrisa.</li>
+                <li class="message-p" style="color: #d81b60;">🌟 La manera en que me amás.</li>
+                <li class="message-p" style="color: #d81b60;">🌟 Faltan millones de cosas, pero ño caberian acá</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>
+                Con todo el amor del universo,
+            </p>
+            <p class="signature">
+                Edu
+            </p>
+        </div>
+
+        <div class="cc">
+            <a href="https://open.spotify.com/intl-es/track/4iXgzMHRSRq8O3jHaA5tXu?si=4955d1047c86471f" target="_blank" rel="noopener noreferrer" class="cn">Te amoo</a>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>
